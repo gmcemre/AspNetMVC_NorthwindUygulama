@@ -1,0 +1,37 @@
+﻿@using AspNetMVC_NorthwindUygulama.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UrunEkle</title>
+</head>
+<body>
+    <form action="/Urun/UrunEkle" method="post">
+        Ürün Adı : <input type="text" name="UrunAdi" /> <br />
+        Fiyat : <input type="number" name="BirimFiyati" /> <br />
+        Stok : <input type="number" name="HedefStokDuzeyi" /> <br />
+        Kategori :
+        <select name="KategoriID">
+            @foreach (Kategoriler ktg in ViewBag.Kategoriler)
+            {
+                <option value="@ktg.KategoriID">@ktg.KategoriAdi</option>
+            }
+        </select> <br />
+        Tedarikçi :
+        <select name="TedarikciID">
+            @foreach (Tedarikciler ted in ViewBag.Tedarikciler)
+            {
+                <option value="@ted.TedarikciID">@ted.SirketAdi</option>
+            }
+        </select>
+        <br />
+        <a href="/Urun/Index">İptal</a>
+        <input type="submit" value="Kaydet" />
+    </form>
+</body>
+</html>

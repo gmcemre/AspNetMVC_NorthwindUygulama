@@ -1,0 +1,57 @@
+﻿@using AspNetMVC_NorthwindUygulama.Models
+@model List<Urunler>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Fiyat</th>
+                <th>Stok</th>
+                <th>Kategori ID</th>
+                <th>Tedarikçi ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Urunler urun in Model)
+            {
+                <tr>
+                    <td>@urun.UrunAdi</td>
+                    <td>@urun.BirimFiyati</td>
+                    <td>@urun.HedefStokDuzeyi</td>
+                    <td>@urun.KategoriID</td>
+                    <td>@urun.TedarikciID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Kategori Adı</th>
+                <th>Tanımı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Kategoriler ktg in ViewBag.Kategoriler)
+            {
+                <tr>
+                    <td>@ktg.KategoriAdi</td>
+                    <td>@ktg.Tanimi</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
